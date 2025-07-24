@@ -1,13 +1,13 @@
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { theme } from './Theme/theme';
-import Hero from './Component/hero';
-import About from './Component/About';
-import Skills from './Component/Skills';
-import Projects from './Component/Project';
-import Experience from './Component/Experience';
-import Contact from './Component/Contact';
-import Navigation from './Component/Navigation';
+import { theme } from './theme/theme';
+import Hero from './component/Hero';
+import About from './component/About';
+import Skills from './component/Skills';
+import Projects from './component/Project';
+import Experience from './component/Experience';
+import Contact from './component/Contact';
+import Navigation from './component/Navigation';
 
 
 export default function App() {
