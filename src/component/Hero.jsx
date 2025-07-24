@@ -32,6 +32,38 @@ const Hero = () => {
     "Next.js Expert",
   ];
 
+const contactInfo = [
+  {
+    icon: <Email sx={{ fontSize: 32 }} />,
+    title: "Email",
+    value: "rajayadav12061@gmail.com",
+    href: "mailto:rajayadav12061@gmail.com",
+    gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+  },
+  {
+    icon: <LinkedIn sx={{ fontSize: 32 }} />,
+    title: "LinkedIn",
+    value: "Raja Yadav",
+    href: "https://www.linkedin.com/in/raja-yadav-906073283",
+    gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+  },
+  {
+    icon: <Phone sx={{ fontSize: 32 }} />,
+    title: "WhatsApp",
+    value: "+91 7489009596",
+    href: "https://wa.me/917489009596",
+    gradient: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
+  },
+];
+// const itemVariants = {
+//   hidden: { opacity: 0, y: 50 },
+//   show: {
+//     opacity: 1,
+//     y: 0,
+//     transition: { duration: 0.6, ease: "easeOut" },
+//   },
+// };
+
   useEffect(() => {
     const handleType = () => {
       const current = loopNum % titles.length;
@@ -620,6 +652,7 @@ const Hero = () => {
                     variant="outlined"
                     size="large"
                     startIcon={<Download />}
+                   onClick={() => scrollToSection("projects")}
                     sx={{
                       color: "white",
                       px: 6,
@@ -644,73 +677,54 @@ const Hero = () => {
             </motion.div>
 
             {/* Enhanced Social Links */}
-            <motion.div variants={itemVariants}>
-              <Stack
-                direction="row"
-                spacing={4}
-                justifyContent="center"
-                sx={{ mb: 8 }}
-              >
-                {[
-                  {
-                    icon: <Email sx={{ fontSize: 32 }} />,
-                    href: "mailto:rajayadav12061@gmail.com",
-                    gradient: "linear-gradient(45deg, #667eea, #764ba2)",
+        <motion.div variants={itemVariants}>
+      <Stack
+        direction="row"
+        spacing={4}
+        justifyContent="center"
+        sx={{ mb: 8 }}
+      >
+        {contactInfo.map((social, index) => (
+          <motion.div
+            key={index}
+            whileHover={{
+              scale: 1.2,
+              rotate: [0, -10, 10, 0],
+              y: -10,
+            }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <IconButton
+              href={social.href}
+              target="_blank"
+              sx={{
+                background: social.gradient,
+                color: "white",
+                width: 80,
+                height: 80,
+                backdropFilter: "blur(20px)",
+                border: "2px solid rgba(255,255,255,0.2)",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+                "&:hover": {
+                  boxShadow: "0 20px 50px rgba(0,0,0,0.4)",
+                  "& svg": {
+                    filter: "drop-shadow(0 0 15px rgba(255,255,255,0.8))",
                   },
-                  {
-                    icon: <LinkedIn sx={{ fontSize: 32 }} />,
-                    href: "https://www.linkedin.com/in/raja-yadav-906073283",
-                    target: "_blank",
-                    gradient: "linear-gradient(45deg, #f093fb, #f5576c)",
-                  },
-                  {
-                    icon: <Phone sx={{ fontSize: 32 }} />,
-                    href: "tel:7489009596",
-                    gradient: "linear-gradient(45deg, #10b981, #059669)",
-                  },
-                ].map((social, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{
-                      scale: 1.2,
-                      rotate: [0, -10, 10, 0],
-                      y: -10,
-                    }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <IconButton
-                      href={social.href}
-                      target={social.target}
-                      sx={{
-                        background: social.gradient,
-                        color: "white",
-                        width: 80,
-                        height: 80,
-                        backdropFilter: "blur(20px)",
-                        border: "2px solid rgba(255,255,255,0.2)",
-                        boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
-                        "&:hover": {
-                          boxShadow: "0 20px 50px rgba(0,0,0,0.4)",
-                          "& svg": {
-                            filter:
-                              "drop-shadow(0 0 15px rgba(255,255,255,0.8))",
-                          },
-                        },
-                        transition: "all 0.4s ease",
-                        "& svg": {
-                          filter: "drop-shadow(0 0 8px rgba(255,255,255,0.5))",
-                        },
-                      }}
-                    >
-                      {social.icon}
-                    </IconButton>
-                  </motion.div>
-                ))}
-              </Stack>
-            </motion.div>
-
+                },
+                transition: "all 0.4s ease",
+                "& svg": {
+                  filter: "drop-shadow(0 0 8px rgba(255,255,255,0.5))",
+                },
+              }}
+            >
+              {social.icon}
+            </IconButton>
+          </motion.div>
+        ))}
+      </Stack>
+    </motion.div>
             {/* Enhanced Scroll Down Button */}
-            <motion.div variants={itemVariants}>
+            {/* <motion.div variants={itemVariants}>
               <motion.div
                 animate={{
                   y: [0, -15, 0],
@@ -750,7 +764,7 @@ const Hero = () => {
                   <KeyboardArrowDown sx={{ fontSize: 40 }} />
                 </IconButton>
               </motion.div>
-            </motion.div>
+            </motion.div> */}
           </Box>
         </motion.div>
       </Container>
