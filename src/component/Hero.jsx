@@ -12,9 +12,9 @@ import {
 import {
   Email,
   LinkedIn,
-  Phone,
   KeyboardArrowDown,
   Download,
+  WhatsApp,
 } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -34,21 +34,21 @@ const Hero = () => {
 
 const contactInfo = [
   {
-    icon: <Email sx={{ fontSize: 32 }} />,
+    icon: <Email sx={{ fontSize: 40}} />,
     title: "Email",
     value: "rajayadav12061@gmail.com",
     href: "mailto:rajayadav12061@gmail.com",
     gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
   },
   {
-    icon: <LinkedIn sx={{ fontSize: 32 }} />,
+    icon: <LinkedIn sx={{ fontSize: 40 }} />,
     title: "LinkedIn",
     value: "Raja Yadav",
     href: "https://www.linkedin.com/in/raja-yadav-906073283",
     gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
   },
   {
-    icon: <Phone sx={{ fontSize: 32 }} />,
+    icon: <WhatsApp sx={{ fontSize: 40 }} />,
     title: "WhatsApp",
     value: "+91 7489009596",
     href: "https://wa.me/917489009596",
@@ -652,8 +652,8 @@ const contactInfo = [
                     variant="outlined"
                     size="large"
                     startIcon={<Download />}
-                   onClick={() => scrollToSection("projects")}
-                    sx={{
+                     onClick={() => window.open("/RajaYadavResume.pdf", "_blank")}                   
+                      sx={{
                       color: "white",
                       px: 6,
                       py: 2.5,

@@ -14,7 +14,7 @@ import {
   Snackbar,
   Alert,
 } from "@mui/material"
-import { Email, Phone, LocationOn, Send, GitHub, LinkedIn } from "@mui/icons-material"
+import { Email, Phone, LocationOn, Send, GitHub, LinkedIn, WhatsApp } from "@mui/icons-material"
 import { motion, useInView } from "framer-motion"
 
 const Contact = () => {
@@ -47,21 +47,21 @@ const Contact = () => {
   }
 const contactInfo = [
   {
-    icon: <Email sx={{ fontSize: 24 }} />,
+    icon: <Email sx={{ fontSize: 32 }} />,
     title: "Email",
     value: "rajayadav12061@gmail.com",
     href: "mailto:rajayadav12061@gmail.com",
     gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
   },
   {
-    icon: <Phone sx={{ fontSize: 24 }} />,
+    icon: <Phone sx={{ fontSize: 32 }} />,
     title: "WhatsApp",
     value: "+91 7489009596",
     href: "https://wa.me/917489009596", // ✅ WhatsApp link
     gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
   },
   {
-    icon: <LocationOn sx={{ fontSize: 24 }} />,
+    icon: <WhatsApp sx={{ fontSize: 32 }} />,
     title: "Location",
     value: "Indore, Madhya Pradesh",
     href: "#",
@@ -76,12 +76,12 @@ const contactInfo = [
     //   href: "#", // Placeholder
     //   gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
     // },
-    {
-      icon: <LinkedIn sx={{ fontSize: 24 }} />,
-      name: "LinkedIn",
-      href: "https://www.linkedin.com/in/raja-yadav-906073283",
-      gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-    },
+    // {
+    //   icon: <LinkedIn sx={{ fontSize: 24 }} />,
+    //   name: "LinkedIn",
+    //   href: "https://www.linkedin.com/in/raja-yadav-906073283",
+    //   gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+    // },
   ]
 
   const containerVariants = {
@@ -294,7 +294,8 @@ const contactInfo = [
                     </Card>
                   ))}
                 </Box>
-                <Box>
+            
+                {/* <Box>
                   <Typography variant="h6" fontWeight="bold" gutterBottom sx={{ color: "white" }}>
                     Follow Me
                   </Typography>
@@ -324,7 +325,7 @@ const contactInfo = [
                       </IconButton>
                     ))}
                   </Box>
-                </Box>
+                </Box> */}
               </motion.div>
             </Grid>
 
