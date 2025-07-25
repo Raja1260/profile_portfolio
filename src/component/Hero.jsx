@@ -270,26 +270,28 @@ const contactInfo = [
         />
 
         {/* Shooting Stars */}
-        {/* <Box className="shooting-star shooting-star-1" />
+        <Box className="shooting-star shooting-star-1" />
         <Box className="shooting-star shooting-star-2" />
         <Box className="shooting-star shooting-star-3" />
-        <Box className="shooting-star shooting-star-4" /> */}
+        <Box className="shooting-star shooting-star-4" />
+         <Box className="shooting-star shooting-star-5" />
+        <Box className="shooting-star shooting-star-6" />
 
         {/* Floating Code Elements */}
-        {["</>", "{}", "()", "[]", "=>", "&&","||"].map((symbol, i) => (
+        {["</>", "{}", "()", "[]", "=>","...","&&","||","</>","{`if` & `else`}"].map((symbol, i) => (
           <motion.div
             key={i}
             animate={{
-              y: [-20, 20, -20],
-              x: [-10, 10, -10],
-              rotate: [0, 5, -5, 0],
-              opacity: [0.3, 0.7, 0.3],
+              y: [-40, 40, -40],
+              x: [-20, 20, -20],
+              rotate: [0, 10, -10, 0],
+              opacity: [0.5, 0.9, 0.5],
             }}
             transition={{
               duration: 4 + i,
               repeat: Number.POSITIVE_INFINITY,
               ease: "easeInOut",
-              delay: i * 0.5,
+              delay: i * 0.2,
             }}
             style={{
               position: "absolute",
@@ -496,7 +498,7 @@ const contactInfo = [
                 <Typography
                   variant="h3"
                   sx={{
-                    fontWeight: 400,
+                    fontWeight: 600,
                     fontSize: { xs: "1.8rem", md: "2.8rem" },
                     background: "linear-gradient(45deg, #ffffff, #cbd5e1)",
                     backgroundClip: "text",
