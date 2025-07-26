@@ -104,7 +104,7 @@ const About = () => {
   },
   {
     icon: <Rocket sx={{ fontSize: 28 }} />,
-    value: "15+",
+    value: "5+",
     label: "Projects Built",
     color: "#ec4899", // Pink
   },

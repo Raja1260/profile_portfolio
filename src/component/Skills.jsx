@@ -471,7 +471,7 @@ const Skills = () => {
   </Grid>
 </motion.div>
           {/* Achievements Section */}
-          <motion.div variants={itemVariants}>
+          {/* <motion.div variants={itemVariants}>
             <Paper
               elevation={0}
               sx={{
@@ -534,7 +534,7 @@ const Skills = () => {
                 ))}
               </Grid>
             </Paper>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </Container>
       <style jsx global>{`
