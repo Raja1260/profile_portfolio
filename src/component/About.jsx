@@ -110,7 +110,7 @@ const About = () => {
   },
   {
     icon: <Star sx={{ fontSize: 28 }} />,
-    value: "5+",
+    value: "15+",
     label: "Technologies",
     color: "#f59e0b", // Amber
   },
