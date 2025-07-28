@@ -54,14 +54,14 @@ const contactInfo = [
     gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
   },
   {
-    icon: <Phone sx={{ fontSize: 32 }} />,
+    icon: <WhatsApp sx={{ fontSize: 32 }} />,
     title: "WhatsApp",
     value: "+91 7489009596",
     href: "https://wa.me/917489009596", // ✅ WhatsApp link
     gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
   },
   {
-    icon: <WhatsApp sx={{ fontSize: 32 }} />,
+    icon: <LocationOn sx={{ fontSize: 32 }} />,
     title: "Location",
     value: "Indore, Madhya Pradesh",
     href: "#",
