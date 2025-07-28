@@ -58,15 +58,15 @@ const contactInfo = [
     title: "WhatsApp",
     value: "+91 7489009596",
     href: "https://wa.me/917489009596", // ✅ WhatsApp link
-    gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+    gradient: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
   },
   {
     icon: <LocationOn sx={{ fontSize: 32 }} />,
     title: "Location",
     value: "Indore, Madhya Pradesh",
-    href: "#",
-    gradient: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
-  },
+    // href: "#",
+gradient: "linear-gradient(135deg, #10b981 0%, #0d9277 25%, #0a6e6e 50%, #075985 75%, #004d7a 100%)"  },
+
 ]
 
   const socialLinks = [
