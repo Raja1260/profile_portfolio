@@ -13,7 +13,7 @@ import {
   IconButton,
   Chip,
 } from "@mui/material"
-import { Code, Storage, Palette, Speed, TrendingUp, EmojiEvents, Star } from "@mui/icons-material"
+import { Code, Storage, Palette, Speed, TrendingUp, EmojiEvents, Star, DeveloperMode } from "@mui/icons-material"
 import { motion, useInView } from "framer-motion"
 
 const Skills = () => {
@@ -21,106 +21,140 @@ const Skills = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [activeCategory, setActiveCategory] = useState("all")
   const [hoveredSkill, setHoveredSkill] = useState(null)
-  const skillsData = [
+const skillsData = [
   {
     name: "React.js",
     level: 90,
     icon: "⚛️",
     category: "frontend",
-    color: "#61DAFB", // React blue
+    color: "#61DAFB",
   },
   {
     name: "Next.js",
     level: 90,
     icon: "▲",
     category: "frontend",
-    color: "#000000", // Next.js black
+    color: "#000000",
   },
   {
     name: "JavaScript",
     level: 90,
     icon: "🟨",
     category: "frontend",
-    color: "#F7DF1E", // JS yellow
+    color: "#F7DF1E",
   },
   {
     name: "TypeScript",
     level: 70,
     icon: "🔷",
     category: "frontend",
-    color: "#3178C6", // TS blue
+    color: "#3178C6",
   },
   {
     name: "Tailwind CSS",
     level: 80,
     icon: "🎨",
     category: "frontend",
-    color: "#38B2AC", // Tailwind teal
+    color: "#38B2AC",
   },
   {
     name: "Material UI",
     level: 95,
     icon: "🎭",
     category: "frontend",
-    color: "#007FFF", // MUI blue
+    color: "#007FFF",
   },
   {
     name: "Python",
     level: 80,
     icon: "🐍",
     category: "backend",
-    color: "#3776AB", // Python blue
+    color: "#3776AB",
   },
   {
     name: "SQL",
     level: 80,
     icon: "🗄️",
     category: "backend",
-    color: "#336791", // SQL blue
+    color: "#336791",
   },
   {
     name: "RESTful APIs",
     level: 85,
     icon: "🔗",
     category: "backend",
-    color: "#6B7280", // Neutral gray
+    color: "#6B7280",
   },
   {
     name: "Git",
     level: 85,
     icon: "📝",
     category: "tools",
-    color: "#F05032", // Git orange
+    color: "#F05032",
   },
   {
     name: "Figma",
     level: 75,
     icon: "🎯",
     category: "tools",
-    color: "#A259FF", // Figma purple
+    color: "#A259FF",
   },
   {
     name: "Jira",
     level: 90,
     icon: "📋",
     category: "tools",
-    color: "#0052CC", // Jira blue
+    color: "#0052CC",
   },
   {
     name: "UI/UX Design",
     level: 85,
     icon: "🎨",
     category: "tools",
-    color: "#FF6B6B", // Design red
+    color: "#FF6B6B",
   },
+  {
+    name: "Docker",
+    level: 85,
+    icon: "🐳",
+    category: "devops",
+    color: "#2496ED",
+  },
+  {
+    name: "Kubernetes",
+    level: 80,
+    icon: "☸️",
+    category: "devops",
+    color: "#326CE5",
+  },
+  {
+    name: "CI/CD",
+    level: 80,
+    icon: "🔁",
+    category: "devops",
+    color: "#00C7B7",
+  },
+   // Data
+  { name: "Matplotlib", level: 85, icon: "📊", category: "data", color: "#11557C" },
+  { name: "Pandas", level: 85, icon: "🐼", category: "data", color: "#150458" },
+  { name: "NumPy", level: 85, icon: "🔢", category: "data", color: "#013243" },
 ];
 
-     const categories = [
+const categories = [
   { id: "all", label: "All Skills", icon: <Star />, color: "#8b5cf6" },
   { id: "frontend", label: "Frontend", icon: <Code />, color: "#6366f1" },
   { id: "backend", label: "Backend", icon: <Storage />, color: "#ec4899" },
   { id: "tools", label: "Tools & Design", icon: <Palette />, color: "#10b981" },
+  {
+    id: "devops",
+    label: "DevOps",
+    icon: <DeveloperMode />, // You can use another icon if preferred
+    color: "#f59e0b", // Orange shade for DevOps
+  },
+    // { id: "data", label: "Data Science", icon: <DataView />, color: "#0ea5e9" },
+
 ];
+
 
 // In your component render:
 
@@ -334,7 +368,7 @@ const Skills = () => {
             label={category.label}
             onClick={() => setActiveCategory(category.id)}
             sx={{
-              px: 3,
+              px: 7,
               py: 1.5,
               height: "auto",
               background:
