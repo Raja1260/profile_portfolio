@@ -85,6 +85,13 @@ const skillsData = [
     category: "backend",
     color: "#6B7280",
   },
+   {
+    name: "RBAC",
+    level: 80,
+    icon: "🔐",
+    category: "backend",
+    color: "#FF9900",
+  },
   {
     name: "Git",
     level: 85,
