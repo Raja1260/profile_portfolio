@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react"
 import { Box, Typography, Container, Grid, Card, CardContent, Button, Chip } from "@mui/material"
-import { GitHub, Launch, Group, TrendingUp, Event } from "@mui/icons-material"
+import { GitHub, Launch, Group, TrendingUp, Event, Money, Payment, CreditCard, AccountBalance, Analytics, BarChart } from "@mui/icons-material"
 import { motion, useInView } from "framer-motion"
 
 const Projects = () => {
@@ -26,7 +26,7 @@ const Projects = () => {
     tech: ["React", "Tailwind CSS", "Razorpay", "JavaScript"],
     features: ["Job Management", "Subscription Plans", "Payment Integration", "Responsive Design"],
     icon: <Event sx={{ fontSize: 40 }} />,
-    color: "#3b82f6", // Blue
+    color: "#4CAF50", // Green
     accentColor: "rgba(59, 130, 246, 0.1)"
   },
   {
@@ -34,7 +34,7 @@ const Projects = () => {
     description: "A full-featured expense tracking platform with role-based dynamic forms, automated approval workflows, and streamlined reimbursement processing. Simplifies financial oversight and ensures compliance with customizable access controls.",
     tech: ["Next.js", "MUI", "JavaScript", "Workflow Engine"],
     features: ["Dynamic Forms", "Approval Workflows", "Reimbursement Tracking", "Role-based Access"],
-    icon: <TrendingUp sx={{ fontSize: 40 }} />,
+    icon: <AccountBalance sx={{ fontSize: 40 }} />,
     color: "#ec4899", // Pink
     accentColor: "rgba(236, 72, 153, 0.1)"
   },
@@ -43,7 +43,7 @@ const Projects = () => {
     description: "A data-driven solution for detecting revenue losses in municipal gas metering systems. Leverages Python-based analytics to uncover inefficiencies and provide actionable insights for cost recovery.",
     tech: ["Python", "Pandas", "Matplotlib", "Data Analysis"],
     features: ["Data Cleaning", "Visualization", "Loss Analysis", "Strategic Insights"],
-    icon: <TrendingUp sx={{ fontSize: 40 }} />,
+    icon: <BarChart sx={{ fontSize: 40 }} />,
     color: "#f59e0b", // Amber
     accentColor: "rgba(245, 158, 11, 0.1)"
   }

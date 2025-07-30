@@ -25,6 +25,7 @@ import {
   TrendingUp,
   EmojiEvents,
   Psychology,
+  WorkspacePremium,
 } from "@mui/icons-material";
 
 const About = () => {
@@ -83,8 +84,8 @@ const About = () => {
       institution: "St Paul Institute of Professional Studies, Indore",
       period: "2019 - 2022",
       cgpa: "8.21",
-      icon: <Code sx={{ fontSize: 28, color: "white" }} />,
-      color: "#ec4899", // Pink
+      icon: <WorkspacePremium sx={{ fontSize: 28, color: "white" }} />,
+      color: "#4CAF50", // Green
       description:
         "Foundation in computer science with emphasis on programming and software development",
       achievements: [
