@@ -17,7 +17,7 @@ import {
   ListItemIcon,
 } from "@mui/material"
 import { Menu as MenuIcon, Close as CloseIcon } from "@mui/icons-material"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import {
   Home,
   Person,
@@ -25,7 +25,7 @@ import {
   Work,
   School,
   Email,
-} from '@mui/icons-material';
+} from "@mui/icons-material"
 
 const Navigation = () => {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -34,42 +34,16 @@ const Navigation = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
 
   const navItems = [
-    { 
-      label: "Home", 
-      href: "#home",
-      icon: <Home fontSize="small" /> 
-    },
-    { 
-      label: "About", 
-      href: "#about",
-      icon: <Person fontSize="small" /> 
-    },
-    { 
-      label: "Skills", 
-      href: "#skills",
-      icon: <Code fontSize="small" /> 
-    },
-    { 
-      label: "Projects", 
-      href: "#projects",
-      icon: <Work fontSize="small" /> 
-    },
-    { 
-      label: "Experience", 
-      href: "#experience",
-      icon: <School fontSize="small" /> 
-    },
-    { 
-      label: "Contact", 
-      href: "#contact",
-      icon: <Email fontSize="small" /> 
-    },
-  ];
+    { label: "Home", href: "#home", icon: <Home fontSize="small" /> },
+    { label: "About", href: "#about", icon: <Person fontSize="small" /> },
+    { label: "Skills", href: "#skills", icon: <Code fontSize="small" /> },
+    { label: "Projects", href: "#projects", icon: <Work fontSize="small" /> },
+    { label: "Experience", href: "#experience", icon: <School fontSize="small" /> },
+    { label: "Contact", href: "#contact", icon: <Email fontSize="small" /> },
+  ]
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
+    const handleScroll = () => setScrolled(window.scrollY > 50)
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
@@ -86,41 +60,47 @@ const Navigation = () => {
     setMobileOpen(false)
   }
 
-  const drawer = (
-    <Box
-      sx={{
-        width: 250,
-        pt: 2,
-        height: "100%",
-        background: "#0f172a", // Dark background for drawer
-        color: "white",
-      }}
+  const drawerContent = (
+    <motion.div
+      key="drawer"
+      initial={{ x: "100%", opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: "100%", opacity: 0 }}
+      transition={{ duration: 0.4, ease: "easeInOut" }}
+      style={{ height: "100%", display: "flex", flexDirection: "column" }}
     >
       <Box sx={{ display: "flex", justifyContent: "flex-end", pr: 2, pb: 2 }}>
-        <IconButton onClick={handleDrawerToggle} sx={{ color: "white" }}>
-          <CloseIcon />
-        </IconButton>
+        <motion.div whileTap={{ rotate: 90, scale: 0.9 }} whileHover={{ rotate: 90 }}>
+          <IconButton onClick={handleDrawerToggle} sx={{ color: "white" }}>
+            <CloseIcon />
+          </IconButton>
+        </motion.div>
       </Box>
+
       <List>
-        {navItems.map((item) => (
-          <ListItem
+        {navItems.map((item, index) => (
+          <motion.div
             key={item.label}
-            button
-            onClick={() => scrollToSection(item.href)}
-            sx={{
-              "&:hover": {
-                background: "rgba(255,255,255,0.1)", // Subtle hover for drawer items
-              },
-            }}
+            initial={{ x: 50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: index * 0.1, duration: 0.4 }}
           >
-            <ListItemIcon sx={{ color: "white", minWidth: "40px" }}>
-              {item.icon}
-            </ListItemIcon>
-            <ListItemText primary={item.label} sx={{ color: "white" }} />
-          </ListItem>
+            <ListItem
+              button
+              onClick={() => scrollToSection(item.href)}
+              sx={{
+                "&:hover": { background: "rgba(255,255,255,0.1)" },
+              }}
+            >
+              <ListItemIcon sx={{ color: "white", minWidth: "40px" }}>
+                {item.icon}
+              </ListItemIcon>
+              <ListItemText primary={item.label} sx={{ color: "white" }} />
+            </ListItem>
+          </motion.div>
         ))}
       </List>
-    </Box>
+    </motion.div>
   )
 
   return (
@@ -157,6 +137,7 @@ const Navigation = () => {
           >
             Raja Yadav
           </Typography>
+
           {isMobile ? (
             <IconButton
               aria-label="open drawer"
@@ -164,12 +145,26 @@ const Navigation = () => {
               onClick={handleDrawerToggle}
               sx={{ color: "white" }}
             >
-              <MenuIcon />
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={mobileOpen ? "close" : "menu"}
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {mobileOpen ? <CloseIcon /> : <MenuIcon />}
+                </motion.div>
+              </AnimatePresence>
             </IconButton>
           ) : (
             <Box sx={{ display: "flex", gap: 1 }}>
               {navItems.map((item) => (
-                <motion.div key={item.label} whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
+                <motion.div
+                  key={item.label}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
                   <Button
                     onClick={() => scrollToSection(item.href)}
                     startIcon={item.icon}
@@ -195,38 +190,43 @@ const Navigation = () => {
           )}
         </Toolbar>
       </AppBar>
-      <Drawer
-        variant="temporary"
-        anchor="right"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        ModalProps={{ keepMounted: true }}
-      >
-        {drawer}
-      </Drawer>
-       <style jsx global>{`
-        @keyframes twinkle {
-          0%, 100% { 
-            opacity: 0.3; 
-            transform: scale(1); 
-          }
-          50% { 
-            opacity: 0.8; 
-            transform: scale(1.2); 
-          }
-        }
-        
-        @keyframes pulse {
-          0%, 100% { 
-            opacity: 0.4; 
-            transform: scale(1); 
-          }
-          50% { 
-            opacity: 0.8; 
-            transform: scale(1.05); 
-          }
-        }
-      `}</style>
+
+      <AnimatePresence>
+        {mobileOpen && (
+          <>
+            {/* Overlay background */}
+            <motion.div
+              key="overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                background: "black",
+                zIndex: 1200,
+              }}
+              onClick={handleDrawerToggle}
+            />
+            <Drawer
+              variant="temporary"
+              anchor="right"
+              open={mobileOpen}
+              onClose={handleDrawerToggle}
+              ModalProps={{ keepMounted: true }}
+              PaperProps={{
+                sx: { background: "#0f172a", color: "white", width: 250 },
+              }}
+            >
+              {drawerContent}
+            </Drawer>
+          </>
+        )}
+      </AnimatePresence>
     </>
   )
 }
