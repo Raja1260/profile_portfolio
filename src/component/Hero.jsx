@@ -654,7 +654,7 @@ const contactInfo = [
                     variant="outlined"
                     size="large"
                     startIcon={<Download />}
-                     onClick={() => window.open("/RajaYadavResume.pdf", "_blank")}                   
+                     onClick={() => window.open("UpdatedCv.pdf", "_blank")}                   
                       sx={{
                       color: "white",
                       px: 6,

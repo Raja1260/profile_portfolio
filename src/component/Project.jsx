@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react"
 import { Box, Typography, Container, Grid, Card, CardContent, Button, Chip } from "@mui/material"
-import { GitHub, Launch, Group, TrendingUp, Event, Money, Payment, CreditCard, AccountBalance, Analytics, BarChart } from "@mui/icons-material"
+import { GitHub, Launch, Group, TrendingUp, Event, Money, Payment, CreditCard, AccountBalance, Analytics, BarChart, SmartToy } from "@mui/icons-material"
 import { motion, useInView } from "framer-motion"
 
 const Projects = () => {
@@ -46,7 +46,36 @@ const Projects = () => {
     icon: <BarChart sx={{ fontSize: 40 }} />,
     color: "#f59e0b", // Amber
     accentColor: "rgba(245, 158, 11, 0.1)"
-  }
+  },
+  {
+    title: "AI Expense Handler",
+    description:
+      "An AI-powered expense management platform that automates financial tracking with features like multi-account management, budgets, AI receipt scanning, and monthly reports. Boosts efficiency through intelligent workflows and real-time insights.",
+    tech: [
+      "Next.js",
+      "Inngest",
+      "Arcjet",
+      "ShadCN",
+      "Supabase",
+      "Prisma",
+      "Clerk",
+      "React Email",
+      "Recharts",
+      "Gemini AI",
+    ],
+    features: [
+      "Multi-Account Management",
+      "Budgets & Analytics",
+      "AI Receipt Scanning",
+      "Transaction CRUD",
+      "Automated Monthly Reports",
+      "Email Alerts",
+    ],
+    icon: <SmartToy sx={{ fontSize: 40 }} />, // AI-looking icon
+    color: "#3b82f6", // Blue
+    accentColor: "rgba(59, 130, 246, 0.1)", // Light blue background on hover
+    link: "https://ai-expense-handler.vercel.app",
+  },
 ];
   const containerVariants = {
     hidden: { opacity: 0 },
