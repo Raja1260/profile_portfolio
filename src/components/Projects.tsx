@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ExternalLink, Github, Filter } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "../data/portfolioData";
 import { AnimatedText } from "./AnimatedText";
@@ -33,16 +33,13 @@ const ProjectDescription: React.FC<{ text: string }> = ({ text }) => {
 };
 
 export const Projects: React.FC = () => {
-  const [filter, setFilter] = useState<"all" | "featured">("all");
-  const filtered = filter === "featured" ? projects.filter((p) => p.featured) : projects;
-
   return (
     <section id="projects" className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-16">
           <AnimatedText
-            text="Featured Projects"
+            text="Projects"
             as="h2"
             className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 justify-center"
           />
@@ -55,38 +52,12 @@ export const Projects: React.FC = () => {
           >
             A showcase of my recent work and personal projects that demonstrate my skills and passion.
           </motion.p>
-
-          {/* Filter pills — shared layoutId background */}
-          <div className="flex justify-center space-x-4">
-            {(["all", "featured"] as const).map((f) => (
-              <motion.button
-                key={f}
-                onClick={() => setFilter(f)}
-                className={`relative px-4 py-2 rounded-lg font-medium flex items-center space-x-2 overflow-hidden ${filter === f ? "text-white" : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
-                  }`}
-                whileTap={{ scale: 0.96 }}
-                whileHover={{ scale: filter === f ? 1 : 1.04 }}
-              >
-                {filter === f && (
-                  <motion.div
-                    layoutId="filter-bg"
-                    className="absolute inset-0 bg-blue-600 rounded-lg"
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                  />
-                )}
-                <span className="relative flex items-center space-x-2">
-                  <Filter className="w-4 h-4" />
-                  <span>{f === "all" ? "All Projects" : "Featured Only"}</span>
-                </span>
-              </motion.button>
-            ))}
-          </div>
         </div>
 
         {/* Grid */}
         <motion.div className="grid md:grid-cols-2 gap-8" layout>
           <AnimatePresence mode="popLayout">
-            {filtered.map((project, index) => (
+            {projects.map((project, index) => (
               <motion.div
                 key={project.id}
                 layout
@@ -106,19 +77,6 @@ export const Projects: React.FC = () => {
                     whileHover={{ scale: 1.08 }}
                     transition={{ duration: 0.45, ease: "easeOut" }}
                   />
-                  {project.featured && (
-                    <div className="absolute top-4 left-4 overflow-hidden rounded-full">
-                      {/* Shimmer badge */}
-                      <div className="relative px-2 py-1 bg-blue-600 text-white text-xs font-medium rounded-full overflow-hidden">
-                        Featured
-                        <motion.div
-                          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12"
-                          animate={{ x: ["-120%", "200%"] }}
-                          transition={{ repeat: Infinity, duration: 2, repeatDelay: 1.5, ease: "easeInOut" }}
-                        />
-                      </div>
-                    </div>
-                  )}
                   {/* Gradient overlay on hover */}
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"

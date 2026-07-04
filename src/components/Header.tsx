@@ -43,8 +43,10 @@ export const Header: React.FC = () => {
   }, []);
 
   const scrollToSection = (href: string) => {
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
     setIsMenuOpen(false);
+    requestAnimationFrame(() => {
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    });
   };
 
   return (

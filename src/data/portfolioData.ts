@@ -1,5 +1,9 @@
 import AiExpense from "../assets/Ai_Expense.png";
 import Botriq from "../assets/Botriq.jpeg"
+import ExpenseManagement from "../assets/ExpenseManagement.jpeg"
+import CertifyMe from "../assets/CertifyMe.png"
+import PieMind from "../assets/PieMind.png"
+import GasMetering from "../assets/GasMetering.png"
 
 export interface Project {
   id: string;
@@ -120,7 +124,7 @@ export const projects: Project[] = [
       "Full-stack workflows across 4+ modules including onboarding, property forms, document handling, and verification. Engineered a toggle-based AI chatbot assistant for contextual form guidance with 10+ field-level validation and error-handling checks. (Built at Blucursor Infotech.)",
     technologies: ["React.js", "Node.js", "Express.js", "REST APIs", "AI Chatbot", "Mongo-DB", "Grafana", "Asana", "S3 Bucket"],
     // PLACEHOLDER image — replace with a real screenshot of the project.
-    imageUrl: "https://placehold.co/600x400?text=CertifyMe",
+    imageUrl: CertifyMe,
     // PLACEHOLDER link — replace with a real URL if available.
     featured: true,
   },
@@ -141,7 +145,7 @@ export const projects: Project[] = [
       "Built 3+ interactive dashboards and personnel-tracking flows implementing activity logs and real-time alerts, while resolving 20+ recurring UI issues. (Built at Blucursor Infotech.)",
     technologies: ["React.js", "REST APIs", "Real-time Alerts", "React-Redux", "Figma AI", "Tailwind CSS"],
     // PLACEHOLDER image — replace with a real screenshot of the project.
-    imageUrl: "https://placehold.co/600x400?text=Piemind+Dashboards",
+    imageUrl: PieMind,
     featured: false,
   },
   {
@@ -151,7 +155,7 @@ export const projects: Project[] = [
       "Expense Management System with dynamic forms, multi-step approval workflows, and real-time reimbursements that reduced manual processing effort. Part of a 5+ module HRMS platform. (Built at Fincoopers Capital.)",
     technologies: ["Next.js", "MUI", "RBAC", "REST APIs", "AI Workflow", "Context API"],
     // PLACEHOLDER image — replace with a real screenshot of the project.
-    imageUrl: "https://placehold.co/600x400?text=Expense+Management",
+    imageUrl: ExpenseManagement,
     featured: false,
   },
   {
@@ -161,7 +165,7 @@ export const projects: Project[] = [
       "Analyzed large-scale gas metering data and surfaced actionable insights, identifying discrepancies that reduced wastage by 15%.",
     technologies: ["Python", "Pandas", "Matplotlib"],
     // PLACEHOLDER image — replace with a real screenshot of the project.
-    imageUrl: "https://placehold.co/600x400?text=Gas+Metering+Analysis",
+    imageUrl: GasMetering,
     // PLACEHOLDER link — replace with a real repo URL if available.
     featured: false,
   },
